@@ -77,7 +77,7 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
             <span className="step-num">3</span>
             <div style={{width:"100%"}}>
               <strong>Envie o comprovante ao vendedor</strong>
-              <p>Tire print da tela de confirmação da aposta e mande pro vendedor junto com seu ID: <strong style={{color:"#fff"}}>{entryId}</strong></p>
+              <p>Tire print da tela de confirmação da aposta e mande pro vendedor no WhatsApp.</p>
               {house?.comprovante && (
                 <button className="btn-comprovante" onClick={() => setShowComprovante(v => !v)}>
                   {showComprovante ? "▲ Ocultar exemplo" : "📋 Ver como tirar o print"}
