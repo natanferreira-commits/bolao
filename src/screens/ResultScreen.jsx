@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HOUSES } from "../config/houses";
 import { getVendor } from "../config/vendors";
+import Confetti from "../components/Confetti";
 
 export default function ResultScreen({ participant, vendorCode, entryId, onViewConvites }) {
   const vendor = getVendor(vendorCode);
   const house = HOUSES.find(h => h.id === participant.house);
   const affiliateLink = vendor.links[participant.house] || "#";
   const today = new Date().toLocaleDateString("pt-BR");
-
+  const [showConfetti, setShowConfetti] = useState(true);
   const [referralCopied, setReferralCopied] = useState(false);
   const referralLink = `${window.location.origin}${window.location.pathname}?v=${vendorCode}&ref=${entryId}`;
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowConfetti(false), 4000);
+    return () => clearTimeout(t);
+  }, []);
 
   function copyReferral() {
     navigator.clipboard.writeText(referralLink).then(() => {
@@ -18,14 +24,12 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
     });
   }
 
-  const whatsappMsg = encodeURIComponent(
-    `Olá! Participei do bolão e preciso validar meu palpite.\n` +
-    `📋 ID: ${entryId}\n🏠 Casa: ${house?.name}\n📅 Data: ${today}`
-  );
-  const whatsappUrl = `https://wa.me/${vendor.whatsapp}?text=${whatsappMsg}`;
+  // Usa o whatsappUrl direto do vendor (já vem configurado com o número certo)
+  const whatsappUrl = vendor.whatsappUrl;
 
   return (
     <div className="screen">
+      {showConfetti && <Confetti />}
 
       {/* Celebração */}
       <div className="result-celebrate">
@@ -34,7 +38,7 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
         <p>Agora é torcer e esperar o apito final</p>
       </div>
 
-      {/* Bilhete do palpite */}
+      {/* Bilhete */}
       <div className="ticket-card">
         <div className="ticket-top">
           <span className="ticket-label">Palpite registrado ✓</span>
@@ -50,7 +54,6 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
       {/* Como validar */}
       <div className="card">
         <h3 className="section-title">Como Validar</h3>
-
         <div className="steps">
           <div className="step">
             <span className="step-num">1</span>
@@ -62,7 +65,6 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
               </a>
             </div>
           </div>
-
           <div className="step">
             <span className="step-num">2</span>
             <div>
@@ -70,7 +72,6 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
               <p>Seu vendedor vai te orientar nos detalhes.</p>
             </div>
           </div>
-
           <div className="step">
             <span className="step-num">3</span>
             <div>
@@ -105,7 +106,6 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
           Ver meus convites →
         </button>
       </div>
-
     </div>
   );
 }

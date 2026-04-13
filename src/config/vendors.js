@@ -1,77 +1,81 @@
-// Cada vendedor tem um código único e seus links afiliados por casa
-// URL de acesso: bolao.site/?v=CODIGO
+// Cada vendedor tem um código único
+// URL com código: bolao.site/?v=CODIGO
+// URL sem código: sistema randomiza 25% cada
+
 export const VENDORS = {
-  A7K3X: {
-    name: "Vendedor 1",       // Nome interno (não exibido ao lead)
-    whatsapp: "5511999990001", // Número com DDI+DDD
+  V001: {
+    name: "Talya",
+    whatsappUrl: "https://api.whatsapp.com/send/?phone=5521973065809&text=Quero+informa%C3%A7%C3%B5es+sobre+como+validar+meu+bol%C3%A3o%21&type=phone_number&app_absent=0",
     links: {
-      betmgm:       "https://betmgm.com/ref/A7K3X",
-      esportivabet: "https://esportivabet.com/ref/A7K3X",
-      novibet:      "https://novibet.com/ref/A7K3X",
-      sportingbet:  "https://sportingbet.com/ref/A7K3X",
-      stake:        "https://stake.com/ref/A7K3X",
-      superbet:     "https://superbet.com/ref/A7K3X",
+      betmgm:       "https://betmgm.com/ref/V001",
+      esportivabet: "https://esportivabet.com/ref/V001",
+      novibet:      "https://novibet.com/ref/V001",
+      sportingbet:  "https://sportingbet.com/ref/V001",
+      stake:        "https://stake.com/ref/V001",
+      superbet:     "https://superbet.com/ref/V001",
     },
   },
-  B2M8P: {
-    name: "Vendedor 2",
-    whatsapp: "5511999990002",
+  V002: {
+    name: "João",
+    whatsappUrl: "https://wa.me/5521990386855?text=Quero%20informa%C3%A7%C3%B5es%20sobre%20como%20validar%20meu%20bol%C3%A3o!",
     links: {
-      betmgm:       "https://betmgm.com/ref/B2M8P",
-      esportivabet: "https://esportivabet.com/ref/B2M8P",
-      novibet:      "https://novibet.com/ref/B2M8P",
-      sportingbet:  "https://sportingbet.com/ref/B2M8P",
-      stake:        "https://stake.com/ref/B2M8P",
-      superbet:     "https://superbet.com/ref/B2M8P",
+      betmgm:       "https://betmgm.com/ref/V002",
+      esportivabet: "https://esportivabet.com/ref/V002",
+      novibet:      "https://novibet.com/ref/V002",
+      sportingbet:  "https://sportingbet.com/ref/V002",
+      stake:        "https://stake.com/ref/V002",
+      superbet:     "https://superbet.com/ref/V002",
     },
   },
-  C9R1T: {
-    name: "Vendedor 3",
-    whatsapp: "5511999990003",
+  V003: {
+    name: "Marcio",
+    whatsappUrl: "https://wa.me/5521993779499?text=Quero%20informa%C3%A7%C3%B5es%20sobre%20como%20validar%20meu%20bol%C3%A3o!",
     links: {
-      betmgm:       "https://betmgm.com/ref/C9R1T",
-      esportivabet: "https://esportivabet.com/ref/C9R1T",
-      novibet:      "https://novibet.com/ref/C9R1T",
-      sportingbet:  "https://sportingbet.com/ref/C9R1T",
-      stake:        "https://stake.com/ref/C9R1T",
-      superbet:     "https://superbet.com/ref/C9R1T",
+      betmgm:       "https://betmgm.com/ref/V003",
+      esportivabet: "https://esportivabet.com/ref/V003",
+      novibet:      "https://novibet.com/ref/V003",
+      sportingbet:  "https://sportingbet.com/ref/V003",
+      stake:        "https://stake.com/ref/V003",
+      superbet:     "https://superbet.com/ref/V003",
     },
   },
-  D4W6N: {
-    name: "Vendedor 4",
-    whatsapp: "5511999990004",
+  V004: {
+    name: "Isabela",
+    whatsappUrl: "https://wa.me/5521972970642?text=Quero%20informa%C3%A7%C3%B5es%20sobre%20como%20validar%20meu%20bol%C3%A3o!",
     links: {
-      betmgm:       "https://betmgm.com/ref/D4W6N",
-      esportivabet: "https://esportivabet.com/ref/D4W6N",
-      novibet:      "https://novibet.com/ref/D4W6N",
-      sportingbet:  "https://sportingbet.com/ref/D4W6N",
-      stake:        "https://stake.com/ref/D4W6N",
-      superbet:     "https://superbet.com/ref/D4W6N",
-    },
-  },
-  E5J2Q: {
-    name: "Vendedor 5",
-    whatsapp: "5511999990005",
-    links: {
-      betmgm:       "https://betmgm.com/ref/E5J2Q",
-      esportivabet: "https://esportivabet.com/ref/E5J2Q",
-      novibet:      "https://novibet.com/ref/E5J2Q",
-      sportingbet:  "https://sportingbet.com/ref/E5J2Q",
-      stake:        "https://stake.com/ref/E5J2Q",
-      superbet:     "https://superbet.com/ref/E5J2Q",
+      betmgm:       "https://betmgm.com/ref/V004",
+      esportivabet: "https://esportivabet.com/ref/V004",
+      novibet:      "https://novibet.com/ref/V004",
+      sportingbet:  "https://sportingbet.com/ref/V004",
+      stake:        "https://stake.com/ref/V004",
+      superbet:     "https://superbet.com/ref/V004",
     },
   },
 };
 
-// Código padrão se o lead acessar sem ?v= (fallback)
-export const DEFAULT_VENDOR_CODE = "A7K3X";
-
-export function getVendor(code) {
-  return VENDORS[code] || VENDORS[DEFAULT_VENDOR_CODE];
-}
+const VENDOR_CODES = Object.keys(VENDORS);
+const LS_KEY = "bolao_vendor";
 
 export function getVendorCode() {
   const params = new URLSearchParams(window.location.search);
-  const code = params.get("v")?.toUpperCase();
-  return VENDORS[code] ? code : DEFAULT_VENDOR_CODE;
+  const fromUrl = params.get("v")?.toUpperCase();
+
+  // 1. Veio com código na URL → usa e salva
+  if (fromUrl && VENDORS[fromUrl]) {
+    localStorage.setItem(LS_KEY, fromUrl);
+    return fromUrl;
+  }
+
+  // 2. Já tem sessão salva → mantém
+  const saved = localStorage.getItem(LS_KEY);
+  if (saved && VENDORS[saved]) return saved;
+
+  // 3. Tráfego orgânico → sorteia 25% cada e salva
+  const random = VENDOR_CODES[Math.floor(Math.random() * VENDOR_CODES.length)];
+  localStorage.setItem(LS_KEY, random);
+  return random;
+}
+
+export function getVendor(code) {
+  return VENDORS[code] || VENDORS[VENDOR_CODES[0]];
 }
