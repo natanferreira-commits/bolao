@@ -3,6 +3,7 @@ import FormScreen from "./screens/FormScreen";
 import PredictionsScreen from "./screens/PredictionsScreen";
 import ResultScreen from "./screens/ResultScreen";
 import AdminScreen from "./screens/AdminScreen";
+import Footer from "./components/Footer";
 import { getVendorCode } from "./config/vendors";
 import { saveToSheets } from "./lib/sheets";
 import "./App.css";
@@ -62,6 +63,7 @@ function App() {
         {step === 2 && <PredictionsScreen onSubmit={handlePredictionsSubmit} onBack={() => setStep(1)} />}
         {step === 3 && <ResultScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onPlayAgain={() => { setParticipant(null); setEntryId(null); setStep(1); }} />}
       </main>
+      <Footer />
     </div>
   );
 }

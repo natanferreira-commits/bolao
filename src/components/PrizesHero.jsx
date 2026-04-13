@@ -42,7 +42,7 @@ export default function PrizesHero() {
       </div>
 
       <p className="prizes-disclaimer">
-        🎲 Sorteio entre todos os participantes de cada faixa de acertos
+        🏆 Você vai concorrer ao prêmio da sua faixa de acertos
       </p>
     </div>
   );
