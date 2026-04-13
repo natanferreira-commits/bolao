@@ -1,4 +1,4 @@
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycby7a-E9KdBUCtbRKUSMhY0L1RlVgVKxktpZYgoAH1hSsfPKObJ_jHQNlYf8JTJ524hW/exec";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbx2J2JdPEiryM0HC3NTrWfeDxO4347ukDllQZfecF36pcqWpgWdBYfm49emVEqjDjK4vw/exec";
 
 export async function saveToSheets({ participant, predictions, vendorCode, referredBy, entryId }) {
   const payload = {
