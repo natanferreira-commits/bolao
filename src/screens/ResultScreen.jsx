@@ -58,8 +58,8 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
           <div className="step">
             <span className="step-num">1</span>
             <div>
-              <strong>Cadastre-se na {house?.name}</strong>
-              <p>Use o link abaixo para criar sua conta</p>
+              <strong>Crie sua conta na {house?.name}</strong>
+              <p>Acesse pelo link oficial abaixo e faça seu cadastro.</p>
               <a href={affiliateLink} target="_blank" rel="noopener noreferrer" className="affiliate-link">
                 Acessar {house?.name} →
               </a>
@@ -68,15 +68,15 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
           <div className="step">
             <span className="step-num">2</span>
             <div>
-              <strong>Deposite e faça sua aposta</strong>
-              <p>Seu vendedor vai te orientar nos detalhes.</p>
+              <strong>Ative sua conta com uma aposta</strong>
+              <p>Faça qualquer aposta em um jogo da Champions League para ativar sua participação.</p>
             </div>
           </div>
           <div className="step">
             <span className="step-num">3</span>
             <div>
               <strong>Envie o comprovante ao vendedor</strong>
-              <p>Mande o print do depósito com seu ID de palpite.</p>
+              <p>Mande o print da aposta junto com seu ID: <strong>{entryId}</strong></p>
             </div>
           </div>
         </div>
