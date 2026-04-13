@@ -634,11 +634,17 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 
 /* ── Global BG ── */
 body {
-  background-image: url('/bg-champions.png');
+  background-image: url('/bg-desk.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+@media (max-width: 480px) {
+  body {
+    background-image: url('/bg-mobile.png');
+    background-position: center top;
+  }
 }
 /* overlay escuro para legibilidade */
 body::before {
