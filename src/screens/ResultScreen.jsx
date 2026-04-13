@@ -6,7 +6,7 @@ import Confetti from "../components/Confetti";
 export default function ResultScreen({ participant, vendorCode, entryId, onViewConvites, onPlayAgain }) {
   const vendor = getVendor(vendorCode);
   const house = HOUSES.find(h => h.id === participant.house);
-  const affiliateLink = vendor.links[participant.house] || "#";
+  const affiliateLink = house?.affiliateLink || "#";
   const today = new Date().toLocaleDateString("pt-BR");
   const [showConfetti, setShowConfetti] = useState(true);
   const [referralCopied, setReferralCopied] = useState(false);

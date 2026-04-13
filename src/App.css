@@ -632,29 +632,27 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Responsive / Mobile BG ── */
-@media (max-width: 480px) {
-  body {
-    background-image: url('/bg-champions.png');
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-  /* overlay escuro para legibilidade */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background: rgba(5, 8, 20, 0.72);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .app { position: relative; z-index: 1; }
-  .app-header { background: rgba(10, 12, 28, 0.85); backdrop-filter: blur(8px); }
-  .card, .prizes-hero, .ticket-card, .invite-card, .game-card, .convites-stats {
-    background: rgba(15, 16, 36, 0.82);
-    backdrop-filter: blur(6px);
-  }
+/* ── Global BG ── */
+body {
+  background-image: url('/bg-champions.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+/* overlay escuro para legibilidade */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: rgba(5, 8, 20, 0.78);
+  pointer-events: none;
+  z-index: 0;
+}
+.app { position: relative; z-index: 1; }
+.app-header { background: rgba(10, 12, 28, 0.88); backdrop-filter: blur(10px); }
+.card, .prizes-hero, .ticket-card, .invite-card, .game-card, .convites-stats {
+  background: rgba(15, 16, 36, 0.84);
+  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 360px) {
