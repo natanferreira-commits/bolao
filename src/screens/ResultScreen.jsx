@@ -10,6 +10,7 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
   const today = new Date().toLocaleDateString("pt-BR");
   const [showConfetti, setShowConfetti] = useState(true);
   const [referralCopied, setReferralCopied] = useState(false);
+  const [showComprovante, setShowComprovante] = useState(false);
   const referralLink = `${window.location.origin}${window.location.pathname}?v=${vendorCode}&ref=${entryId}`;
 
   useEffect(() => {
@@ -74,9 +75,21 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
           </div>
           <div className="step">
             <span className="step-num">3</span>
-            <div>
+            <div style={{width:"100%"}}>
               <strong>Envie o comprovante ao vendedor</strong>
-              <p>Mande o print da aposta junto com seu ID: <strong>{entryId}</strong></p>
+              <p>Tire print da tela de confirmação da aposta e mande pro vendedor junto com seu ID: <strong style={{color:"#fff"}}>{entryId}</strong></p>
+              {house?.comprovante && (
+                <button className="btn-comprovante" onClick={() => setShowComprovante(v => !v)}>
+                  {showComprovante ? "▲ Ocultar exemplo" : "📋 Ver como tirar o print"}
+                </button>
+              )}
+              {showComprovante && house?.comprovante && (
+                <img
+                  src={house.comprovante}
+                  alt={`Exemplo comprovante ${house.name}`}
+                  className="comprovante-img"
+                />
+              )}
             </div>
           </div>
         </div>
