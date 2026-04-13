@@ -3,7 +3,7 @@ import { HOUSES } from "../config/houses";
 import { getVendor } from "../config/vendors";
 import Confetti from "../components/Confetti";
 
-export default function ResultScreen({ participant, vendorCode, entryId, onViewConvites, onPlayAgain }) {
+export default function ResultScreen({ participant, vendorCode, entryId, onPlayAgain }) {
   const vendor = getVendor(vendorCode);
   const house = HOUSES.find(h => h.id === participant.house);
   const affiliateLink = house?.affiliateLink || "#";
@@ -109,9 +109,6 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
           </button>
         )}
 
-        <button className="btn-invite-secondary" onClick={onViewConvites}>
-          Ver meus convites →
-        </button>
       </div>
     </div>
   );

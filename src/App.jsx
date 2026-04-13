@@ -2,7 +2,6 @@ import { useState } from "react";
 import FormScreen from "./screens/FormScreen";
 import PredictionsScreen from "./screens/PredictionsScreen";
 import ResultScreen from "./screens/ResultScreen";
-import ConvitesScreen from "./screens/ConvitesScreen";
 import AdminScreen from "./screens/AdminScreen";
 import { getVendorCode } from "./config/vendors";
 import { saveEntry } from "./lib/supabase";
@@ -22,6 +21,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [vendorCode] = useState(() => getVendorCode());
   const [referredBy] = useState(() => new URLSearchParams(window.location.search).get("ref"));
+
 
   async function handleFormSubmit(formData) {
     setParticipant(formData);
@@ -63,14 +63,7 @@ function App() {
         {loading && <div className="loading-overlay"><div className="spinner" /></div>}
         {step === 1 && <FormScreen onSubmit={handleFormSubmit} />}
         {step === 2 && <PredictionsScreen onSubmit={handlePredictionsSubmit} onBack={() => setStep(1)} />}
-        {step === 3 && <ResultScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onViewConvites={() => setStep(4)} onPlayAgain={() => { setParticipant(null); setEntryId(null); setStep(1); }} />}
-        {step === 4 && (
-          <ConvitesScreen
-            entryId={entryId}
-            referralLink={`${window.location.origin}${window.location.pathname}?v=${vendorCode}&ref=${entryId}`}
-            onBack={() => setStep(3)}
-          />
-        )}
+        {step === 3 && <ResultScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onPlayAgain={() => { setParticipant(null); setEntryId(null); setStep(1); }} />}
       </main>
     </div>
   );
