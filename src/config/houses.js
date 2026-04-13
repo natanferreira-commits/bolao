@@ -27,7 +27,7 @@ export const HOUSES = [
     id: "stake",
     name: "Stake",
     logo: "/logos/stake.png",
-    affiliateLink: "#", // TODO: adicionar link afiliado Stake
+    affiliateLink: "https://media1.stakeaffiliates-br.com/redirect.aspx?pid=17663&bid=1484",
   },
   {
     id: "superbet",
