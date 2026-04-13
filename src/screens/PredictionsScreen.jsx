@@ -60,11 +60,11 @@ export default function PredictionsScreen({ onSubmit, onBack }) {
               </div>
 
               <div className="score-inputs">
-                <input type="number" min="0" max="99" className="score-input" placeholder="0"
+                <input type="number" min="0" max="99" className="score-input" placeholder="?"
                   value={scores[game.id].home}
                   onChange={e => setScore(game.id, "home", e.target.value)} />
                 <span className="score-sep">×</span>
-                <input type="number" min="0" max="99" className="score-input" placeholder="0"
+                <input type="number" min="0" max="99" className="score-input" placeholder="?"
                   value={scores[game.id].away}
                   onChange={e => setScore(game.id, "away", e.target.value)} />
               </div>
