@@ -3,7 +3,7 @@ import { HOUSES } from "../config/houses";
 import { getVendor } from "../config/vendors";
 import Confetti from "../components/Confetti";
 
-export default function ResultScreen({ participant, vendorCode, entryId, onViewConvites }) {
+export default function ResultScreen({ participant, vendorCode, entryId, onViewConvites, onPlayAgain }) {
   const vendor = getVendor(vendorCode);
   const house = HOUSES.find(h => h.id === participant.house);
   const affiliateLink = vendor.links[participant.house] || "#";
@@ -102,6 +102,13 @@ export default function ResultScreen({ participant, vendorCode, entryId, onViewC
         <button className="btn-invite" onClick={copyReferral}>
           {referralCopied ? "✓ Link copiado!" : "📋 Copiar meu link"}
         </button>
+
+        {referralCopied && (
+          <button className="btn-play-again" onClick={onPlayAgain}>
+            ⚽ Fazer mais um palpite →
+          </button>
+        )}
+
         <button className="btn-invite-secondary" onClick={onViewConvites}>
           Ver meus convites →
         </button>

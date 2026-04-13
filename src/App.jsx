@@ -63,7 +63,7 @@ function App() {
         {loading && <div className="loading-overlay"><div className="spinner" /></div>}
         {step === 1 && <FormScreen onSubmit={handleFormSubmit} />}
         {step === 2 && <PredictionsScreen onSubmit={handlePredictionsSubmit} onBack={() => setStep(1)} />}
-        {step === 3 && <ResultScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onViewConvites={() => setStep(4)} />}
+        {step === 3 && <ResultScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onViewConvites={() => setStep(4)} onPlayAgain={() => { setParticipant(null); setEntryId(null); setStep(1); }} />}
         {step === 4 && (
           <ConvitesScreen
             entryId={entryId}

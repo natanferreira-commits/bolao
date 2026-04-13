@@ -105,8 +105,8 @@ input::placeholder { color: var(--text-dim); }
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   transition: all .2s; position: relative; overflow: hidden;
 }
-.house-btn:hover { border-color: var(--blue-lt); transform: translateY(-1px); }
-.house-btn.selected { border-color: var(--blue-lt); background: rgba(255,186,0,0.07); }
+.house-btn:hover { border-color: var(--border); } /* sem lift, sem cor */
+.house-btn.selected { border-color: var(--blue-lt); background: rgba(29,111,255,0.08); }
 .house-btn.selected::after {
   content: '✓';
   position: absolute; top: 7px; right: 9px;
@@ -246,12 +246,17 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 .step p { font-size: 13px; color: var(--text-dim); margin-bottom: 8px; line-height: 1.5; }
 
 .affiliate-link {
-  display: inline-block; color: var(--green-lt); font-size: 13px; font-weight: 700;
-  text-decoration: none; border: 1.5px solid var(--green-lt);
-  border-radius: 8px; padding: 7px 14px; transition: all .2s;
-  text-transform: uppercase; letter-spacing: 0.5px;
+  display: block; width: 100%;
+  background: var(--green-lt); color: #fff;
+  font-size: 15px; font-weight: 900;
+  text-decoration: none; border: none;
+  border-radius: 10px; padding: 15px;
+  transition: all .2s; text-transform: uppercase;
+  letter-spacing: 0.5px; text-align: center;
+  margin-top: 4px;
+  box-shadow: 0 4px 20px rgba(0,179,126,0.3);
 }
-.affiliate-link:hover { background: rgba(0,179,126,0.1); }
+.affiliate-link:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,179,126,0.45); }
 
 /* ── Invite ── */
 .invite-card {
@@ -304,6 +309,21 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
   position: relative; z-index: 1;
 }
 .btn-invite:hover { filter: brightness(0.93); transform: translateY(-1px); }
+.btn-play-again {
+  width: 100%; background: rgba(255,255,255,0.12);
+  color: #fff; border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 10px; padding: 14px; margin-top: 8px;
+  font-size: 14px; font-weight: 700; font-family: inherit;
+  cursor: pointer; transition: all .2s;
+  position: relative; z-index: 1;
+  animation: fadeSlideUp .3s ease both;
+}
+.btn-play-again:hover { background: rgba(255,255,255,0.2); transform: translateY(-1px); }
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .btn-invite-secondary {
   width: 100%; background: transparent; color: rgba(255,255,255,0.55);
   border: none; padding: 12px; margin-top: 6px;
