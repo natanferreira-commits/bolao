@@ -4,7 +4,7 @@ import PredictionsScreen from "./screens/PredictionsScreen";
 import ResultScreen from "./screens/ResultScreen";
 import AdminScreen from "./screens/AdminScreen";
 import { getVendorCode } from "./config/vendors";
-import { saveEntry } from "./lib/supabase";
+import { saveToSheets } from "./lib/sheets";
 import "./App.css";
 
 const IS_ADMIN = window.location.pathname === "/admin";
@@ -32,12 +32,9 @@ function App() {
     setLoading(true);
     try {
       const id = generateId();
-      try {
-        const result = await saveEntry({ participant, predictions: scores, vendorCode, referredBy });
-        setEntryId(result?.id || id);
-      } catch {
-        setEntryId(id);
-      }
+      setEntryId(id);
+      // Salva no Sheets em background — não bloqueia o fluxo
+      saveToSheets({ participant, predictions: scores, vendorCode, referredBy, entryId: id }).catch(() => {});
       setStep(3);
     } finally {
       setLoading(false);
