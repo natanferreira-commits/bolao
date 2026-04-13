@@ -407,43 +407,68 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 
 /* Static prize cards */
 .prizes-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr; /* gold slightly wider */
+  gap: 10px;
   position: relative; z-index: 1;
+  align-items: stretch;
 }
 .prize-card {
   border-radius: 10px; padding: 14px 10px;
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
   border: 1.5px solid transparent;
-  animation: cardPulse 3s ease-in-out infinite;
+  cursor: default;
+  transition: transform .2s, box-shadow .2s, border-color .2s, background .2s;
 }
 .prize-card--bronze {
-  background: rgba(205,127,50,0.12); border-color: rgba(205,127,50,0.35);
-  animation-delay: 0s;
+  background: rgba(205,127,50,0.10); border-color: rgba(205,127,50,0.3);
 }
 .prize-card--silver {
-  background: rgba(180,180,180,0.1); border-color: rgba(180,180,180,0.3);
-  animation-delay: 0.5s;
+  background: rgba(180,180,180,0.08); border-color: rgba(180,180,180,0.25);
 }
 .prize-card--gold {
-  background: rgba(29,111,255,0.12); border-color: rgba(29,111,255,0.4);
-  animation-delay: 1s;
+  background: rgba(29,111,255,0.10); border-color: rgba(29,111,255,0.35);
+  padding: 18px 10px; /* taller */
 }
-@keyframes cardPulse {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-3px); }
+
+/* Hover states */
+.prize-card--bronze:hover {
+  transform: translateY(-4px);
+  border-color: #cd7f32;
+  background: rgba(205,127,50,0.2);
+  box-shadow: 0 8px 24px rgba(205,127,50,0.25);
 }
+.prize-card--silver:hover {
+  transform: translateY(-4px);
+  border-color: #c0c0c0;
+  background: rgba(180,180,180,0.18);
+  box-shadow: 0 8px 24px rgba(200,200,200,0.2);
+}
+.prize-card--gold:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue-lt);
+  background: rgba(29,111,255,0.22);
+  box-shadow: 0 8px 28px rgba(29,111,255,0.35);
+}
+
 .prize-card-hits {
   font-size: 10px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 1px; color: var(--text-dim); margin-bottom: 2px;
 }
+.prize-card--gold .prize-card-hits { font-size: 11px; }
+
 .prize-card-value { font-size: 22px; font-weight: 900; line-height: 1; }
+.prize-card--gold .prize-card-value { font-size: 26px; }
 .prize-card--bronze .prize-card-value { color: #cd7f32; }
 .prize-card--silver .prize-card-value { color: #c0c0c0; }
 .prize-card--gold   .prize-card-value { color: var(--blue-lt); }
 .prize-card-label { font-size: 10px; color: var(--text-dim); }
-.prize-card-desc {
-  font-size: 9px; color: var(--text-dim); text-align: center;
-  margin-top: 6px; line-height: 1.4; opacity: 0.8;
+
+.prizes-disclaimer {
+  font-size: 12px; color: var(--text-dim);
+  margin-top: 14px; text-align: center;
+  position: relative; z-index: 1;
+  line-height: 1.5;
 }
 
 /* ── Predictions motivational bar ── */
@@ -587,7 +612,31 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Responsive ── */
+/* ── Responsive / Mobile BG ── */
+@media (max-width: 480px) {
+  body {
+    background-image: url('/bg-champions.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  /* overlay escuro para legibilidade */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: rgba(5, 8, 20, 0.72);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .app { position: relative; z-index: 1; }
+  .app-header { background: rgba(10, 12, 28, 0.85); backdrop-filter: blur(8px); }
+  .card, .prizes-hero, .ticket-card, .invite-card, .game-card, .convites-stats {
+    background: rgba(15, 16, 36, 0.82);
+    backdrop-filter: blur(6px);
+  }
+}
+
 @media (max-width: 360px) {
   .houses-grid { grid-template-columns: 1fr; }
   .score-input { width: 46px !important; height: 50px; font-size: 22px; }

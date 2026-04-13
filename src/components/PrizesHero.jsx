@@ -3,22 +3,16 @@ const PRIZES = [
     tier: "bronze",
     hits: 2,
     value: "R$200",
-    label: "Prêmio",
-    desc: "Sorteio entre todos que acertarem exatamente 2 placares",
   },
   {
     tier: "silver",
     hits: 3,
     value: "R$300",
-    label: "Prêmio",
-    desc: "Sorteio entre todos que acertarem exatamente 3 placares",
   },
   {
     tier: "gold",
     hits: 4,
     value: "R$400",
-    label: "Prêmio",
-    desc: "Sorteio entre todos que acertarem os 4 placares",
   },
 ];
 
@@ -43,10 +37,13 @@ export default function PrizesHero() {
             <div className="prize-card-hits">{p.hits} acertos</div>
             <div className="prize-card-value">{p.value}</div>
             <div className="prize-card-label">no PIX</div>
-            <div className="prize-card-desc">{p.desc}</div>
           </div>
         ))}
       </div>
+
+      <p className="prizes-disclaimer">
+        🎲 Sorteio entre todos os participantes de cada faixa de acertos
+      </p>
     </div>
   );
 }
