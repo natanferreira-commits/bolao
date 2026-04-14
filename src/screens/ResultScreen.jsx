@@ -61,7 +61,13 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
             <div>
               <strong>Crie sua conta na {house?.name}</strong>
               <p>Acesse pelo link oficial abaixo e faça seu cadastro.</p>
-              <a href={affiliateLink} target="_blank" rel="noopener noreferrer" className="affiliate-link">
+              <a
+                href={affiliateLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="affiliate-link"
+                onClick={() => window.gtag?.('event', 'click_afiliado', { casa: house?.name, vendedor: vendorCode })}
+              >
                 Acessar {house?.name} →
               </a>
             </div>
