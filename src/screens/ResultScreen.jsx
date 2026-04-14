@@ -75,7 +75,7 @@ export default function ResultScreen({ participant, vendorCode, entryId, onPlayA
           </div>
           <div className="step">
             <span className="step-num">3</span>
-            <div style={{width:"100%"}}>
+            <div>
               <strong>Envie o comprovante ao vendedor</strong>
               <p>Tire print da tela de confirmação da aposta e mande pro vendedor no WhatsApp.</p>
               {house?.comprovante && (
