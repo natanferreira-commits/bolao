@@ -26,6 +26,7 @@ function App() {
 
   async function handleFormSubmit(formData) {
     setParticipant(formData);
+    window.gtag?.('event', 'cadastro_completo', { casa: formData.house, vendedor: vendorCode });
     setStep(2);
   }
 
@@ -34,7 +35,7 @@ function App() {
     try {
       const id = generateId();
       setEntryId(id);
-      // Salva no Sheets em background — não bloqueia o fluxo
+      window.gtag?.('event', 'bolao_preenchido', { vendedor: vendorCode });
       saveToSheets({ participant, predictions: scores, vendorCode, referredBy, entryId: id }).catch(() => {});
       setStep(3);
     } finally {
