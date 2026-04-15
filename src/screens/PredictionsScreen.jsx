@@ -27,18 +27,8 @@ export default function PredictionsScreen({ onSubmit, onBack }) {
 
       <div className="predictions-prize-bar">
         <div className="pred-prize-pill">
-          <span className="pred-prize-dot pred-prize-dot--bronze" />
-          <span className="pred-prize-text">3 acertos</span>
-          <span className="pred-prize-amt">R$300</span>
-        </div>
-        <div className="pred-prize-pill">
-          <span className="pred-prize-dot pred-prize-dot--silver" />
-          <span className="pred-prize-text">4 acertos</span>
-          <span className="pred-prize-amt">R$400</span>
-        </div>
-        <div className="pred-prize-pill">
           <span className="pred-prize-dot pred-prize-dot--gold" />
-          <span className="pred-prize-text">5 acertos</span>
+          <span className="pred-prize-text">2 acertos</span>
           <span className="pred-prize-amt">R$500</span>
         </div>
       </div>

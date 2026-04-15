@@ -1,18 +1,8 @@
 const PRIZES = [
   {
-    tier: "bronze",
-    hits: 2,
-    value: "R$200",
-  },
-  {
-    tier: "silver",
-    hits: 3,
-    value: "R$300",
-  },
-  {
     tier: "gold",
-    hits: 4,
-    value: "R$400",
+    hits: 2,
+    value: "R$500",
   },
 ];
 
@@ -42,7 +32,7 @@ export default function PrizesHero() {
       </div>
 
       <p className="prizes-disclaimer">
-        🏆 Você vai concorrer ao prêmio da sua faixa de acertos
+        🏆 Acerte os 2 placares e concorra a R$500 no PIX
       </p>
     </div>
   );
