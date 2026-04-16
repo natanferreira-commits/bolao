@@ -1,7 +1,9 @@
 import { useState } from "react";
 import FormScreen from "./screens/FormScreen";
 import PredictionsScreen from "./screens/PredictionsScreen";
-import ResultScreen from "./screens/ResultScreen";
+import ValidateScreen from "./screens/ValidateScreen";
+import WhatsAppScreen from "./screens/WhatsAppScreen";
+import DoubleScreen from "./screens/DoubleScreen";
 import AdminScreen from "./screens/AdminScreen";
 import Footer from "./components/Footer";
 import { getVendorCode } from "./config/vendors";
@@ -51,7 +53,7 @@ function App() {
         <div className="header-inner">
           <span className="logo">🏆 Bolão <span>Champions</span></span>
           <div className="steps-indicator">
-            {[1, 2, 3, 4].map(n => (
+            {[1, 2, 3, 4, 5].map(n => (
               <div key={n} className={`step-dot ${step >= n ? "active" : ""} ${step === n ? "current" : ""}`} />
             ))}
           </div>
@@ -62,7 +64,9 @@ function App() {
         {loading && <div className="loading-overlay"><div className="spinner" /></div>}
         {step === 1 && <FormScreen onSubmit={handleFormSubmit} />}
         {step === 2 && <PredictionsScreen onSubmit={handlePredictionsSubmit} onBack={() => setStep(1)} />}
-        {step === 3 && <ResultScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onPlayAgain={() => { setParticipant(null); setEntryId(null); setStep(1); }} />}
+        {step === 3 && <ValidateScreen participant={participant} vendorCode={vendorCode} entryId={entryId} onNext={() => setStep(4)} />}
+        {step === 4 && <WhatsAppScreen participant={participant} vendorCode={vendorCode} onNext={() => setStep(5)} />}
+        {step === 5 && <DoubleScreen entryId={entryId} vendorCode={vendorCode} onPlayAgain={() => { setParticipant(null); setEntryId(null); setStep(1); }} />}
       </main>
       <Footer />
     </div>

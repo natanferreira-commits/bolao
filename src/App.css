@@ -731,3 +731,132 @@ body::before {
   color: var(--text) !important;
   opacity: 0.9 !important;
 }
+
+/* ── ValidateScreen / WhatsAppScreen / DoubleScreen ── */
+.validate-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 24px 0 8px;
+}
+.validate-check {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.validate-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+.validate-header p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.validate-cta-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.validate-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.validate-cta-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
+.validate-cta-card p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btn-affiliate-big {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 12px;
+  letter-spacing: .02em;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 4px 20px rgba(124,58,237,.35);
+}
+.btn-affiliate-big:hover {
+  opacity: .9;
+  transform: translateY(-1px);
+}
+
+.btn-next-step {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.btn-next-step:hover { color: var(--text); }
+
+/* WhatsApp steps inside card */
+.wapp-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wapp-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.wapp-step-num {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(37,211,102,.15);
+  color: #25d366;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.wapp-step p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
