@@ -860,3 +860,56 @@ body::before {
   line-height: 1.5;
   margin: 0;
 }
+
+/* ── House Picker ── */
+.house-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn .2s ease;
+}
+.house-picker-alert {
+  background: rgba(250,204,21,.08);
+  border: 1px solid rgba(250,204,21,.25);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.house-picker-alert strong { color: #facc15; }
+.house-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.house-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  text-align: left;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+.house-picker-item:hover {
+  border-color: #7c3aed;
+  background: rgba(124,58,237,.08);
+}
+.house-picker-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.house-picker-arrow {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 16px;
+}
