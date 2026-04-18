@@ -913,3 +913,30 @@ body::before {
   color: var(--text-dim);
   font-size: 16px;
 }
+
+/* texto mais claro no validate card */
+.validate-desc {
+  font-size: 15px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* botão de confirmação pós-clique */
+.btn-confirm-created {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity .2s, transform .2s;
+  animation: fadeIn .3s ease;
+}
+.btn-confirm-created:hover {
+  opacity: .9;
+  transform: translateY(-1px);
+}

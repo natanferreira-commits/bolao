@@ -5,44 +5,35 @@ export default function ValidateScreen({ participant, vendorCode, entryId, onNex
   const originalHouse = HOUSES.find(h => h.id === participant.house);
   const [activeHouse, setActiveHouse] = useState(originalHouse);
   const [showPicker, setShowPicker] = useState(false);
-  const today = new Date().toLocaleDateString("pt-BR");
+  const [clicked, setClicked] = useState(false);
 
   const otherHouses = HOUSES.filter(h => h.id !== activeHouse?.id);
 
   function pickHouse(house) {
     setActiveHouse(house);
     setShowPicker(false);
+    setClicked(false);
     window.gtag?.('event', 'troca_casa', { de: originalHouse?.name, para: house.name, vendedor: vendorCode });
+  }
+
+  function handleAffiliateClick() {
+    window.gtag?.('event', 'click_afiliado', { casa: activeHouse?.name, vendedor: vendorCode });
+    setClicked(true);
   }
 
   return (
     <div className="screen">
 
-      {/* Header */}
       <div className="validate-header">
         <div className="validate-check">✓</div>
         <h2>Palpite registrado!</h2>
         <p>Agora valide sua participação para concorrer</p>
       </div>
 
-      {/* Bilhete */}
-      <div className="ticket-card">
-        <div className="ticket-top">
-          <span className="ticket-label">Palpite registrado ✓</span>
-          <span className="ticket-date">{today}</span>
-        </div>
-        <div className="ticket-id">{entryId}</div>
-        <div className="ticket-bottom">
-          <span>{participant.name}</span>
-          <span>{activeHouse?.name}</span>
-        </div>
-      </div>
-
-      {/* CTA principal */}
       <div className="validate-cta-card">
         <div className="validate-step-label">PASSO 1 DE 2</div>
         <h3>Crie sua conta na {activeHouse?.name}</h3>
-        <p>
+        <p className="validate-desc">
           Para validar sua participação no bolão você precisa criar uma conta
           na {activeHouse?.name} pelo link oficial da Dupla Aposta.
         </p>
@@ -52,16 +43,21 @@ export default function ValidateScreen({ participant, vendorCode, entryId, onNex
           target="_blank"
           rel="noopener noreferrer"
           className="btn-affiliate-big"
-          onClick={() => window.gtag?.('event', 'click_afiliado', { casa: activeHouse?.name, vendedor: vendorCode })}
+          onClick={handleAffiliateClick}
         >
           Criar conta na {activeHouse?.name} →
         </a>
+
+        {clicked && (
+          <button className="btn-confirm-created" onClick={onNext}>
+            ✅ Já criei minha conta — próximo passo →
+          </button>
+        )}
 
         <button className="btn-next-step" onClick={() => setShowPicker(v => !v)}>
           {showPicker ? "▲ Fechar" : "Já tenho conta nessa casa →"}
         </button>
 
-        {/* Painel de troca de casa */}
         {showPicker && (
           <div className="house-picker">
             <div className="house-picker-alert">
