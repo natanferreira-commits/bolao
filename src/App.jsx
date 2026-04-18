@@ -51,7 +51,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-inner">
-          <span className="logo">🏆 Bolão <span>Champions</span></span>
+          <span className="logo">🇧🇷 Bolão <span>Brasileiro</span></span>
           <div className="steps-indicator">
             {[1, 2, 3, 4, 5].map(n => (
               <div key={n} className={`step-dot ${step >= n ? "active" : ""} ${step === n ? "current" : ""}`} />

@@ -24,7 +24,7 @@ export default function WhatsAppScreen({ participant, vendorCode, onNext }) {
         <div className="wapp-steps">
           <div className="wapp-step">
             <span className="wapp-step-num">1</span>
-            <p>Faça qualquer aposta na {house?.name} em um jogo da Champions League</p>
+            <p>Faça qualquer aposta na {house?.name} em um jogo do Campeonato Brasileiro</p>
           </div>
           <div className="wapp-step">
             <span className="wapp-step-num">2</span>
